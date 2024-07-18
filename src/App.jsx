@@ -13,7 +13,7 @@ function App() {
         "C) To handle routing in single-page applications",
         "D) To build user interfaces"
       ],
-      "correctAns": "D"
+      "correctAns": "D) To build user interfaces"
     },
     {
       "question": "Which of the following is a state management library commonly used with React?",
@@ -23,7 +23,7 @@ function App() {
         "C) Lodash",
         "D) Axios"
       ],
-      "correctAns": "A"
+      "correctAns": "A) Redux"
     },
     {
       "question": "What is the purpose of the useRecoilState hook in Recoil?",
@@ -33,7 +33,7 @@ function App() {
         "C) To read and write state",
         "D) To apply CSS styles"
       ],
-      "correctAns": "C"
+      "correctAns": "C) To read and write state"
     },
     {
       "question": "Which component in Chakra UI is used to create a button?",
@@ -43,7 +43,7 @@ function App() {
         "C) <Text>",
         "D) <Grid>"
       ],
-      "correctAns": "B"
+      "correctAns": "B) <Button>"
     },
     {
       "question": "In react-router-dom, which component is used to define a route?",
@@ -53,13 +53,13 @@ function App() {
         "C) <Route>",
         "D) <Switch>"
       ],
-      "correctAns": "C"
+      "correctAns": "C) <Route>"
     }
   ]
-  
+
   const [page, setPage] = useState(0)
   const [number, setNumber] = useState(1)
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0)
   const [showCorrectAns, setShowCorrectAns] = useState(false)
   const [showLast, setShowLast] = useState([])
 
@@ -72,7 +72,7 @@ function App() {
       setNumber(prev => prev + 1)
       setPage((prev) => (prev + 1) % data.length)
       setShowCorrectAns(false)
-    }, 1000)
+    }, 2000)
   }
 
   const handleReset = () => {
@@ -83,7 +83,7 @@ function App() {
   }
 
   const checkQuestion = (opt) => {
-    if (opt.includes(data[page].correctAns)) {
+    if (opt === data[page].correctAns) {
       setScore(score + 1)
     } else {
       setShowLast(prev => [
@@ -98,8 +98,6 @@ function App() {
     handleNext()
   }
 
-  console.log(score);
-
   return (
     <div className="quiz-container">
       {number <= 5 ? (
@@ -111,16 +109,15 @@ function App() {
           {data[page].options.map((opt, idx) => (
             <p key={idx} onClick={() => { checkQuestion(opt) }} style={{ cursor: "pointer" }}>{opt}</p>
           ))}
-          {showCorrectAns && <p  style={{backgroundColor:"green", color:"white", fontSize:"1rem"}}>Correct Ans of the question is: {data[page].correctAns}</p>}
+          {showCorrectAns && <p style={{ backgroundColor: "green", color: "white", fontSize: "1rem" }}>Correct Ans of the question is: {data[page].correctAns}</p>}
         </>
       ) : (
         <>
-          <h1>Your Score is {score} out of 5</h1>
+          <h1>Your scored {score} out of 5</h1>
           <h2>Questions you got wrong:</h2>
           {showLast.map((item, idx) => (
             <div key={idx}>
-              <h3>{item.question}</h3>
-              <p>Correct Answer: {item.correctAns}</p>
+              <p>{item.question} : {item.correctAns}</p>
             </div>
           ))}
           <button onClick={handleReset}>Play again..?</button>
