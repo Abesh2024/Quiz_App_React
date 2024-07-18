@@ -1,0 +1,77 @@
+/* App.css */
+
+body {
+  background-color: #f0f2f5;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.quiz-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.quiz-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.quiz-container h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #666;
+}
+
+.quiz-container p {
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.quiz-container p:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.quiz-container button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quiz-container button:hover {
+  background-color: #0056b3;
+}
+
+.quiz-container .score {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
